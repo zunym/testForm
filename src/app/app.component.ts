@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testForm';
+
+  // @ViewChild('form')
+  // form: NgForm;
+
+  // processForm(form: NgForm){
+  //   const name = form.value.name;
+  //   form.reset()
+
+  // }
 }

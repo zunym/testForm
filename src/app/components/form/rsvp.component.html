@@ -1,0 +1,78 @@
+<form #rspvForm="ngForm" (ngSubmit)="processRSVP(rspvForm)" fxLayout="column row" fxLayoutGap="10px">
+
+  <mat-form-field>
+    <input type="text" name="name" ngModel placeholder="name" matInput required minlength="2" maxlength="10">
+    <mat-hint>Your Office Name</mat-hint>
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <input type="email" name="email" #emailField="ngModel" placeholder="email" matInput required email>
+    <mat-hint *ngIf="#emailField.invalid">Please enter a valid email!</mat-hint>
+    <mat-error *ngIf="#emailField.hasError(`email`)">Invalid email</mat-error>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <input type="email" placeholder="Your email" #emailField="ngModel" name="email" ngModel matInput required email>
+    <mat-hint *ngIf="emailField.invalid">Your Email</mat-hint>
+    <mat-error *ngIf="emailField.hasError('email')">
+      Invalid Email
+    </mat-error> 
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="tel" name="mobile" ngModel placeholder="phone" matInput required tel>
+  </mat-form-field>
+
+  <mat-card>Attending?
+    <mat-card-content fxLayout fxLayoutGap="1vw">
+      <mat-radio-group name="attending" ngModel fxLayout fxLayoutGap="1vh">
+        <mat-radio-button value="true"> Yes</mat-radio-button>
+        <mat-radio-button value="false"> No</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>Food
+    <mat-card-content fxLayout="column" fxLayoutGap="1vw">
+      <mat-checkbox name="fish" (change)="food[0]=$event.checked" ngModel> Fish</mat-checkbox>
+      <mat-checkbox name="meat" (change)="food[1]=$event.checked" ngModel> Meat</mat-checkbox>
+      <mat-checkbox name="vegetables" (change)="food[2]=$event.checked" ngModel> Vegetables</mat-checkbox>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-form-field>
+    <input [matDatepicker]="picker" placeholder="Choose a date" name="arrival" ngModel matInput required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea name="comments" cols="30" rows="5" ngModel placeholder="Any comments?" matInput></textarea>
+  </mat-form-field>
+
+  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px">
+    <button type="reset" mat-button mat-raised-button color="primary">
+      <mat-icon>clear</mat-icon> Clear
+    </button>
+    <button type="submit" mat-button mat-raised-button color="accent" [disabled]="rspvForm.invalid">
+      <mat-icon>reply</mat-icon>
+      Reply
+    </button>
+  </div>
+
+</form>
+
+
+<!-- <div fxLayout="row">
+  <div class="blue-box" fxFlex="grow">BLUE</div>
+  <div class="red-box" fxFlex="grow">RED</div>
+  <div class="grey-box" fxFlex="grow">GREY</div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="10px">
+    <div class="blue-box">BLUE</div>
+    <div class="red-box">RED</div>
+    <div class="grey-box">GREY</div>
+  </div> -->
+
+  <!-- npm i -g angular-cli-ghpages -->
